@@ -5,13 +5,22 @@
     <h1 align = center> SCS Library Sign In Page </h1>
 
 <p>Select your name below</p>
-<select onchange =var a= 'this.options[selectedIndex].value';>
+<select onchange = "nameFunction(this.value)">
 <option>Forest</option>
 <option>Rick</option>
 <option>Perry</option>
 </select>
 
-<input class="destination-list" type="text" placeholder="From:" list="students" id ="studentSelection">    
+<script>
+    function nameFunction(name) {
+        var tableRef = document.getElementById(libraryTable);
+        var newRow = tableRef.insertRow(0);
+        var newCell = newRow.insertCell(0);
+        var newText = document.createTextNode(name);
+        newCell.appendChild(newText);
+        addRow('libraryTable');
+    }
+</script>
 
 <hr>
 <table width = "100%" id = "libraryTable" border = "5" border-color = "black">
